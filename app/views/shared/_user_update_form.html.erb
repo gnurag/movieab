@@ -1,0 +1,16 @@
+<% if user_signed_in? -%>
+<div class="ADspace" align="center">
+<h4 class="MovieTitle">What did you watch lately?</h4>
+<div class="UserUpdate StandardForm">
+  <%= form_for @update do |f| -%>
+  <%= render :partial => "shared/error_messages", :locals => {:obj => @update} %>
+  <div class="user_update_box">
+    <%= f.text_area :message, :cols => 40, :rows => 3, :class => ''-%>
+  </div>
+  <div class="actions">
+    <%= f.submit "Update" -%> (keep it between 20 to 300 characters)
+  </div>
+  <% end -%>
+</div>
+</div>
+<% end -%>

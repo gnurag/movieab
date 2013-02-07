@@ -1,0 +1,2 @@
+#!/usr/bin/env ruby
+puts "rake xapian:rebuild_index models=\"Title\" RAILS_ENV=production"

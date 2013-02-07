@@ -1,0 +1,11 @@
+<div class='searchBar'>
+    <form method="get" action="/search">
+        <p>
+            <input id="query" class="search" type="text" size="60" name="query" value="<%= (params[:query].nil? ? 'Search movies and people here' : params[:query])-%>"
+            onfocus='javascript: if(this.value=="Search movies and people here"||this.value=="Search") this.value = "";'
+            onblur='javascript:if(this.value==""||this.value==" ") this.value="Search movies and people here";' />
+            <input class="submit" type="submit" value="Search" name="commit" />
+            <span class='providers'><a href="http://www.netflix.com" target="_blank"><%= image_tag("/images/logos/netflix-logo-100w.png", :alt => "Netflix", :size => "100x43") -%></a></span>
+        </p>
+    </form>
+</div>

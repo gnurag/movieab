@@ -1,0 +1,15 @@
+<div class="UserUpdate">
+  <h4><span><%=link_to update.user.name, user_path(update.user.urlid)-%><span></h4>
+<% if update.text? and update.message and update.message != ''-%>
+  <p><%=h update.message -%></p>
+<% elsif update.html? and update.message and update.message != ''-%>
+  <p><%= update.message -%></p>
+<% elsif update.friend? and update.friend-%>
+  <p><%=h update.user.name -%> is now following <%= link_to update.friend.name, user_path(update.friend.urlid)-%>'s updates.</p>
+<% elsif update.review? and update.title-%>
+  <p><%=h update.user.name -%> wrote a review for <%= link_to update.title.title, title_path(update.title.title_for_url) -%>.</p>
+<% elsif update.stash? and update.title-%>
+  <p><%=h update.user.name -%> added <%= link_to update.title.title, title_path(update.title.title_for_url) -%> to their <em><%= update.message-%></em> stash.</p>
+<% end -%>
+  <p class='timestamp'><%= time_ago_in_words(update.created_at)-%> ago.</p>
+</div>

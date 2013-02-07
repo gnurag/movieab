@@ -1,0 +1,84 @@
+/*css for movieAB.com
+ * author: @kamalx [ kamal@eficacy.com ]
+ * */
+body
+    { margin:0; padding:0; font-size:0.9em; }
+
+div.main {
+    margin:0; padding:0; width:100%;
+}
+
+div.page
+    { position:relative; width:940px; margin:0 25px; padding:0; float:left; clear; both;}
+
+/* ------------- HEAD ---------------- */
+div.logo
+    { position:relative; float:left; margin:10px;
+    width:130px; height:50px; overflow:hidden;
+    background:transparent url(/images/logos/movieab_logo.gif) no-repeat scroll 0 0; }
+
+div.logo a { text-indent:-6000pt;}
+/* ------------- HEADER ---------------- */
+/* ------------- BROWSE BAR ---------------- */
+/* ------------- SEARCH BAR ---------------- */
+div.searchBar
+    { float:left; clear:both; }
+
+div.searchBar form p
+    { padding-left:0; margin:0 0 0 9%; overflow:hidden;
+    background:transparent url("/images/objects/sprite-widgets.png") no-repeat scroll 0 5px;
+    color:#888;
+    }
+
+div.searchBar p span
+    { margin:0 10px; }
+
+div.searchBar p span.providers
+    { float:right; clear:none; }
+
+/* -------------- */
+div.sectionBelowFold
+    { height:500px; padding:0; margin:0; }
+
+/* ------------- MOVIE LIST ---------------- */
+div.MovieList
+    {
+    position:relative; float:left; clear:left;
+    }
+/* ------------- GoogAdSzone :D ---------------- */
+div.GASzone
+    {
+    }
+
+    div.GASzone div.ADspace
+        {
+        margin:0 0 0 10px;
+        }
+
+/* ------------- MOVIE ROLL ---------------- */
+div.MovieRoll
+    {
+    /* this is for the roll that shows the list of latest movies */
+    position:relative;
+    float:left; clear:none;
+    }
+
+div.MovieRoll div.Container
+    { overflow:hidden; width:100%; }
+
+div.Movie span.movieData span.movieMore
+        { width:100%; }
+
+div.Movie span.synopsis
+        { width:100%; }
+
+/* ------------- COMMON TO ABOVE THREE SECTIONS ---------------- */
+.MarginT50,
+div.MovieList,
+div.MovieRoll,
+div.GASzone
+    { height:500px; }
+
+/* ------------- SIGNIN BLOCK ---------------- */
+
+/* ------------- FOOTER SECTION ---------------- */

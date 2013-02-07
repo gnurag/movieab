@@ -1,0 +1,2 @@
+#!/usr/bin/env ruby
+puts "rake xapian:update_index RAILS_ENV=development"

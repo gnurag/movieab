@@ -1,0 +1,26 @@
+<%content_for(:left) do -%>
+  <%=render :partial => "shared/left_links" -%>
+<%end-%>
+
+<%content_for(:center) do -%>
+<%if params[:query].nil? or (params[:query] and params[:query].length == 0) -%>
+  <h2>Nothing to search!</h2>
+<%else-%>
+  <%if @matches[:spelling_correction] -%>
+    <h2>Are you looking for <span class="orange"><%=link_to(@matches[:spelling_correction], :controller => "titles", :action => "search", :query => @matches[:spelling_correction])%></span>?</h2>
+  <%end-%>
+  <%=render :partial => "search_group", :locals => {:titles => @matches[:exact], :ttype => "exact"} -%>
+  <%=render :partial => "search_group", :locals => {:titles => @matches[:movies], :ttype => "movie"} -%>
+  <%=render :partial => "search_group", :locals => {:titles => @matches[:series], :ttype => "television series" } -%>
+  <%=render :partial => "search_group", :locals => {:titles => @matches[:programs], :ttype => "program" } -%>
+  <%=render :partial => "search_group", :locals => {:titles => @matches[:discs], :ttype => "disc" } -%>
+  <%=render :partial => "search_group", :locals => {:titles => @matches[:people], :ttype => "people" } -%>
+  <%if @matches[:movies].length == 0 and @matches[:series].length == 0  and  @matches[:programs].length == 0  and  @matches[:discs].length == 0  and  @matches[:people].length == 0  -%>
+    <center><h3>No titles matching <span class="orange"><%=params[:query]%></span> found. </h3></center>
+  <%end-%>
+<%end%>
+<%end%>
+
+<%content_for(:right) do -%>
+<%= render :partial => "layouts/sponsors_small" -%>
+<%end%>

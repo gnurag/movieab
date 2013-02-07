@@ -1,0 +1,23 @@
+<%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.1/jquery-ui.min.js" %>
+<%= stylesheet_link_tag "http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.1/themes/base/jquery-ui.css" %>
+<script type="text/javascript">
+$(document).ready(function() {
+  var $dialog = $('<div></div>')
+    .html('<iframe src="http://www.youtube.com/embed/<%= @youtube_id-%>" height="480" width="640" controls="0"></iframe>')
+    .dialog({
+      autoOpen: false,
+      modal: true,
+      title: 'Trailer',
+      width: 680,
+      buttons: {
+               Close: function() { $(this).dialog('close'); }
+               }
+  });
+
+  $('#yttrailer').click(function() {
+  $dialog.dialog('open');
+  return false;   // prevent the default action, e.g., following a link
+  });
+});
+</script>
+<button id="yttrailer">Watch trailer</button>

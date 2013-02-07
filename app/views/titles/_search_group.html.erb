@@ -1,0 +1,28 @@
+<%if titles and titles.length >= 1 -%>
+<%if ttype and ttype == "people" %>
+  <h2>Listing people matching <span class="orange"><%=params[:query]%></span>.</h2>
+  <%for person in titles -%>
+  <div class="Movie">
+     <span class="movieData Blox Left">
+       <span class="movieName Blox Left CLeft"><%= link_to person.name, :controller => "people", :action => "show", :id => person.name_for_url %>
+       <span class="synopsis Blox Left CLeft" title=""><%=h truncate(strip_html(person.bio), :length => 120) if person.bio -%></span>
+     </span>
+  </div>
+  <%end-%>
+<%elsif ttype and ttype != "people"-%>
+  <h2>Listing <%=ttype if ttype != "exact"-%> titles <%="exactly " if ttype == "exact"-%>matching <span class="orange"><%=params[:query]%></span>.</h2>
+  <%for title in titles %>
+    <div class="Movie">
+        <span class="cover Left"><%=link_to(image_tag(title.box_art_small, :size => "38x53", :class => "image"), :controller => 'titles', :action => 'show', :id => title.title_for_url) if title.box_art_large-%></span>
+        <span class="movieData Blox Left">
+            <span class="movieName Blox Left CLeft"><%=link_to "#{truncate(title.title, :length => 30)}", :controller => 'titles', :action => 'show', :id => title.title_for_url-%>&nbsp;<%="(#{title.release_year})" if title.release_year-%></span>
+            <span class="movieRating Blox">Netflix rating: <%=title.netflix_rating%></span>
+            <span class="synopsis Blox Left CLeft" title=""><%=h truncate(strip_html(title.synopsis), :length => 120) if title.synopsis-%></span>
+            <span class="movieMore Left CLeft">
+                <%=link_to "more...", :controller => "titles", :action => "show", :id => title.title_for_url -%>
+            </span>
+        </span>
+    </div>
+  <%end-%>
+<%end-%>
+<%end-%>

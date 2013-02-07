@@ -1,0 +1,12 @@
+<%content_for(:left) do -%>
+  <%=render :partial => "shared/left_links" -%>
+<%end-%>
+
+<%content_for(:center) do -%>
+  <%=render :partial => "title_listing", :locals => {:titles => @titles} -%>
+<%end%>
+
+<%content_for(:right) do -%>
+<%= render :partial => "layouts/sponsors_small" -%>
+<%= render :partial => "layouts/facebook_200" -%>
+<%end%>

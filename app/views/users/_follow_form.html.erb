@@ -1,0 +1,15 @@
+<% unless user_signed_in? and current_user.id.eql?(@user.id) -%>
+  <div id="follow_form" class="StandardForm">
+    <% if current_user.following?(@user) -%>
+      <%= form_for current_user.relationships.find_by_followed_id(@user), :html => { :method => :delete }, :remote => true do |f| %>
+        <div><%#= f.hidden_field :followed_id %></div>
+	<div class="actions"><%= f.submit " Unfollow " %></div>
+      <% end %>
+    <% else -%>
+      <%= form_for current_user.relationships.build(:followed_id => @user.id), :remote => true do |f| -%>
+        <div><%= f.hidden_field :followed_id %></div>
+        <div class="actions"><%= f.submit " Follow " %></div>
+      <% end %>
+    <% end -%>
+  </div>
+<% end -%>

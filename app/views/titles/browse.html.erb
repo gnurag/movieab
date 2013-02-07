@@ -1,0 +1,80 @@
+<%content_for(:left) do -%>
+<h2><span class="orange"><%=link_to "#{@title.title}", :id => @title.title_for_url-%></span></h2>
+  <div class="left_box">
+    <%=image_tag(@title.box_art_large, :size => "110x150", :alt => "#{@title.title} Box art", :class => "image") if @title.box_art_large-%>
+    <p><b><%=image_tag("/images/arrow.gif") -%> Short title:</b> <%=@title.title_short-%></p>
+    <p><b><%=image_tag("/images/arrow.gif") -%> Netflix rating:</b> <%=@title.netflix_rating.nil? ? "Unrated" : @title.netflix_rating-%></p>
+    <p><b><%=image_tag("/images/arrow.gif") -%> Genere:</b> Action, Adventure, Comedy, Romance, Thriller, Sci-Fi, Fantasy, Adult, Horror</p>
+    <p><b><%=image_tag("/images/arrow.gif") -%> Runtime:</b>  <%= @title.runtime.nil? ? "Not applicable." : "#{@title.runtime/60} minutes." -%></p>
+<!--    <p><b><%=image_tag("/images/arrow.gif") -%> IMDb rating:</b></p> -->
+    <p><b><%=image_tag("/images/arrow.gif") -%> MPAA content rating:</b> NC-17</p>
+    <p><b><%=image_tag("/images/arrow.gif") -%> Release year:</b> <%=@title.release_year-%></p>
+    <p><b><%=image_tag("/images/arrow.gif") -%> Production Company:</b> MGM</p>
+  </div>
+
+<%if not @title.synopsis.nil? -%>
+<h2><span class="orange">Plot summary</span></h2>
+  <div class="left_box">
+      <p><%=@title.synopsis.gsub(/<\/?[^>]*>/, "") -%></p>
+  </div>
+<%end-%>
+
+<h2><span class="orange">Actors and Directors</span></h2>
+  <div class="left_box">
+    <fieldset><legend>&nbsp;<%=image_tag("/images/arrow.gif") -%> <b>Actor<%="s" if @title.actors.length > 1-%></b>&nbsp;</legend>
+      <div class="left_side">
+	<%@title.actors.each_with_index{|actor, i| -%>
+	<%if (i+3).odd? %>
+	<p><%= actor.bio.nil? ? actor.name : link_to(actor.name, :controller => "people", :action => "show", :id => actor.name_for_url)-%></p>
+	<%end-%>
+	<% } -%>
+      </div>
+
+      <div class="right_side">
+	<%@title.actors.each_with_index{|actor, i| -%>
+	<%if not (i+3).odd? %>
+	<p><%= actor.bio.nil? ? actor.name : link_to(actor.name, :controller => "people", :action => "show", :id => actor.name_for_url)-%></p>
+	<%end-%>
+	<% } -%>
+      </div>
+    </fieldset>
+
+    <fieldset><legend>&nbsp;<%=image_tag("/images/arrow.gif") -%> <b>Director<%="s" if @title.directors.length > 1-%></b>&nbsp;</legend>
+      <div class="left_side">
+	<%@title.directors.each_with_index{|director, i| -%>
+	<%if (i+3).odd? %>
+	<p><%= director.bio.nil? ? director.name : link_to(director.name, :controller => "people", :action => "show", :id => director.name_for_url)-%></p>
+	<%end-%>
+	<% } -%>
+      </div>
+
+      <div class="right_side">
+	<%@title.directors.each_with_index{|director, i| -%>
+	<%if not (i+3).odd? %>
+	<p><%= director.bio.nil? ? director.name : link_to(director.name, :controller => "people", :action => "show", :id => director.name_for_url)-%></p>
+	<%end-%>
+	<% } -%>
+      </div>
+    </fieldset>
+  </div>
+
+<%if @title.award_nominations and @title.award_nominations.length > 0 -%>
+<h2><span class="orange">Awards and nominations</span></h2>
+  <div class="left_boxx">
+    <div class="left_sidex">
+      <%@title.award_nominations.each{|award| -%>
+      <p><b><%=image_tag("/images/arrow.gif") -%> <%=award.award.name-%> <%="(#{award.year})" if award.year-%>:</b> <%=award.term-%></p>
+      <%}-%>
+    </div>
+ </div>
+<%end-%>
+
+<!--
+<h2><span class="orange">You might also be interested in</span></h2>
+  <div class="left_box">
+  </div>
+-->
+<%end%>
+<%content_for(:right) do -%>
+<%= render :partial => "layouts/sponsors" -%>
+<%end%>

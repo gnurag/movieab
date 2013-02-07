@@ -1,0 +1,8 @@
+development:
+  google_ajax_key: <GOOGLE-AJAX-KEY>
+
+test:
+  google_ajax_key: <GOOGLE-AJAX-KEY>
+
+production:
+  google_ajax_key: <GOOGLE-AJAX-KEY>

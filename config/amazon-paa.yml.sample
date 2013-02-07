@@ -1,0 +1,17 @@
+development:
+  endpoint: http://webservices.amazon.com/onca/xml
+  access_key_id: <ACCESS-KEY-ID>
+  secret_access_key: <SECRET-ACCESS-KEY>
+  affiliate_id: <AFFILIATE-ID>
+
+test:
+  endpoint: http://webservices.amazon.com/onca/xml
+  access_key_id: <ACCESS-KEY-ID>
+  secret_access_key: <SECRET-ACCESS-KEY>
+  affiliate_id: <AFFILIATE-ID>
+
+production:
+  endpoint: http://webservices.amazon.com/onca/xml
+  access_key_id: <ACCESS-KEY-ID>
+  secret_access_key: <SECRET-ACCESS-KEY>
+  affiliate_id: <AFFILIATE-ID>

@@ -1,0 +1,13 @@
+<%titles.each{|title| -%>
+    <div class="Movie">
+        <span class="cover Left"><%=link_to(image_tag(title.box_art_small, :size => "38x53", :class => "image"), :controller => 'titles', :action => 'show', :id => title.title_for_url) if title.box_art_large-%></span>
+        <span class="movieData Blox Left">
+            <span class="movieName Blox Left CLeft"><%=link_to "#{truncate(title.title, :length => 30)}", :controller => 'titles', :action => 'show', :id => title.title_for_url-%>&nbsp;<%="(#{title.release_year})" if title.release_year-%></span>
+            <span class="movieRating Blox">Netflix rating: <%=title.netflix_rating%></span>
+            <%if not title.synopsis.nil? -%><span class="synopsis Blox Left CLeft" title=""><%=truncate(strip_html(title.synopsis), :length => 120)-%></span><%end-%>
+            <span class="movieMore Left CLeft">
+                <%=link_to "more...", :controller => "titles", :action => "show", :id => title.title_for_url -%>
+            </span>
+        </span>
+    </div>
+<%}-%>

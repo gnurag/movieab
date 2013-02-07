@@ -1,0 +1,8 @@
+{
+ query:'<%= params[:query] -%>',
+ suggestions:[<%= @titles.collect{|t|
+  rel = (not t.release_year.nil? and not t.release_year.eql?('')) ? " (#{t.release_year})" : ""
+  "'#{t.title.gsub("'","")}#{rel}'" }.join(',')
+ -%>],
+ data:[<%= @titles.collect{|t| "'/titles/#{t.title_for_url}'" }.join(',') -%>]
+}

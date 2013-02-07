@@ -1,0 +1,171 @@
+<%content_for(:left) do -%>
+<h1 class="MovieTitle"><%=link_to "#{@title.title}", :id => @title.title_for_url-%><%=" (#{@title.release_year})" if @title.release_year and @title.release_year != ""-%></h1>
+<span class="cover Left"><a href="<%= @title.box_art_hd -%>" title="Poster: <%= @title.title-%>" class="thickbox"><%=image_tag(@title.box_art_large, :size => "110x150", :alt => "#{@title.title} Box art", :class => "image Left") if @title.box_art_large-%></a>
+</span>
+
+<ul class="MovieData">
+<%if @title.release_year and @title.release_year != ""-%>
+  <li id='ReleaseYear'> <strong>Release Year:</strong> <%=@title.release_year-%></li>
+<%end-%>
+  <li id='NFRating'> <strong>NetFlix Rating:</strong> <%=@title.netflix_rating.nil? ? "Unrated" : @title.netflix_rating-%>/5</li>
+  <li id='Runtime'> <strong>Runtime:</strong> <%= @title.runtime.nil? ? "Not applicable." : "#{@title.runtime/60} minutes." -%></li>
+  <li id='ShortTitle'> <strong>Short title:</strong> <%=@title.title_short-%></li>
+  <li id='MPAARating'> <strong>MPAA Content Rating:</strong> <%= @title.mpaa_rating.nil? ? "Not available" : @title.mpaa_rating -%></li>
+<%if @title.studios and @title.studios.length > 0 -%>
+  <li id='Studio'> <strong>Production:</strong>  <%=studio_names-%></li>
+<%end-%>
+  <li id='Genre'> <strong>Genre:</strong> <%= genere -%> </li>
+</ul>
+
+<span class="ThirdPartyRetail">
+<% if @title.amazon_items.length > 0 -%> 
+  <span id="AmazonBuyLink"><%=link_to "Buy this DVD", @title.amazon_items[0].detail_page, :popup => true, :target => '_blank' -%>
+<% end -%> 
+</span>
+</span>
+
+
+<%if not @title.synopsis.nil? -%>
+<h1 class="SectionTitle">Plot summary</h1>
+<span class="movieData Blox Left">
+  <span class="Summary Blox Left CLeft">
+    <%= strip_html(@title.synopsis) -%>
+  </span>
+</span>
+<%end-%>
+
+<%if not @title.google_images.nil? and @title.google_images.length > 0-%>
+<h1 class="SectionTitle">Posters and pictures</h1>
+<div>
+<%@title.google_images[0..3].each{|img| -%>
+<%if img.tb_url %>
+  <span class="cover Left"><%=image_tag(img.tb_url.gsub("\\u003d", "="), :size => "#{img.tb_width}x#{img.tb_height}", :alt => @title.title + " poster")-%></span>
+<%end -%>
+<%}-%>
+</div>
+<%end-%>
+
+<%if not @title.nytimes_review.nil? -%>
+<h1 class="SectionTitle">New York Times reviews</h1>
+<div class="Reviews Left CLeft">
+    <p><em><%=h @title.nytimes_review.headline -%></em></p>
+    <p><%=h @title.nytimes_review.capsule_review -%></p>
+    <p><%=h @title.nytimes_review.summary_short -%></p>
+    <p>Read the <a href="<%=@title.nytimes_review.article_url-%>" target="_blank">NYTimes review of <%=@title.title-%></a><%=h " by #{@title.nytimes_review.byline}" if @title.nytimes_review.byline-%></p>
+</div>
+<%end-%>
+
+<%if @title.actors and @title.actors.length >= 1 -%>
+<h1 class="SectionTitle">Actors and Directors</h1>
+<div class="StarCast">
+  <h3><span>Actor<%="s" if @title.actors.length > 1-%></span></h3>
+    <ul class="StarList">
+<%@title.actors.each{|actor| -%>
+      <li class='actor'><%= link_to(actor.name, :controller => "people", :action => "show", :id => actor.name_for_url)-%></li>
+<% } -%>
+    </ul>
+</div>
+
+<div class="StarCast">
+  <h3><span>Director<%="s" if @title.directors.length > 1-%></span></h3>
+    <ul class="StarList">
+<%@title.directors.each{|director| -%>
+      <li class='actor'><%= link_to(director.name, :controller => "people", :action => "show", :id => director.name_for_url)-%></li>
+<% } -%>
+    </ul>
+</div>
+<%end-%>
+
+
+<%if @title.award_nominations and @title.award_nominations.length > 0 -%>
+<h1 class="SectionTitle">Awards and nominations</h1>
+<div class="Accolades">
+  <ul class="Accolades">
+<%@title.award_nominations.each{|award| -%>
+    <li><strong><%=award.award.name-%> <%="(#{award.year})" if award.year-%>:</strong> <%=award.term-%></li>
+<%}-%>
+  </ul>
+</div>
+<%end-%>
+
+<%if @title.amazon_items.length > 0 -%>
+<% aitem = @title.amazon_items[0] -%>
+<h1 class="SectionTitle">Amazon product info</h1>
+<div class="ThirdPartyProductInfo">
+<% if @title.amazon_images and @title.amazon_images.length > 0 -%>
+  <!-- Amazon product's box art comes here -->
+<%=link_to(image_tag(@title.amazon_images[0].medium, :class => "AmazonCover"), aitem.detail_page, :popup => true) -%>
+<%end-%>
+  <ul class="ThirdPartyProductInfo">
+  <li><strong> ASIN:</strong> <%=aitem.asin-%></li>
+  <li><strong> Aspect ratio:</strong> <%=aitem.aspect_ratio-%></li>
+  <li><strong> Audience rating:</strong> <%=aitem.audience_rating-%></li>
+  <li><strong> Binding:</strong> <%=aitem.binding-%></li>
+  <li><strong> DVD Type:</strong> <%=aitem.dvd_layers-%> Layers (<%=aitem.dvd_sides-%> sides)</li>
+  <li><strong> DVD Region:</strong> <%=aitem.region_code-%></li>
+  <li><strong> Manufacturer:</strong> <%=aitem.manufacturer-%></li>
+  <li><strong> Publisher:</strong> <%=aitem.publisher-%></li>
+  <li><strong> Release date:</strong> <%=aitem.release_date-%></li>
+  </ul>
+</div>
+
+<h1 class="SectionTitle">Amazon product reviews</h1>
+<div class="Reviews Left CLeft">
+  <h3>Editorial review</h3>
+  <% @title.amazon_editorial_reviews.each{|er| -%>
+  <h6 class="Left CAll">by  <%=er.source-%></h6>
+  <div class="ReviewText Left CAll">
+    <%= er.content-%>    
+  </div>
+  <% } -%>
+</div>
+<%end-%>
+
+<h1 class="SectionTitle">User reviews</h1>
+<%if not @title.reviews.nil? and @title.reviews.length > 0 -%>
+<% latest_review = @title.reviews.last-%>
+<div class="StarCast">
+  <h3><span><%= latest_review.subject -%> &mdash; <em>by <%= link_to latest_review.user.name, user_path(latest_review.user.urlid)-%></em></span></h3>
+  <p><span><%=simple_format(h latest_review.review) -%></span></p>
+</div>
+<span class="movieData Blox Left">
+  <span class="Summary Blox Left CLeft">
+<p><%= link_to "Read all reviews", title_reviews_path(@title)-%> | <%= link_to "Write a review", new_title_review_path(@title.title_for_url)-%></p></span></span>
+<%else-%>
+  <h3><span><%= link_to "Be the first one to review!", new_title_review_path(@title.title_for_url)-%></span></h3>
+<%end-%>
+
+
+<%end%>
+<%content_for(:right) do -%>
+<div class="Left" style="width:322px;height:50px;">
+<input type="hidden" name="title_id" id="title_id" value="<%= @title.id-%>" />
+  <select id="watchlist">
+    <option value='0'>Add to DVD stash</option>
+    <option value='1'>Watched</option>
+    <option value='2'>Now watching</option>
+    <option value='3'>To watch</option>
+  </select>
+<span id="watchlistmsg"></span>
+<br/>
+<%= render :partial => 'shared/youtube_trailer' if @youtube_id-%>
+<iframe src="http://www.facebook.com/plugins/like.php?href=<%= CGI.escape title_url-%>&amp;layout=standard&amp;show_faces=true&amp;width=320&amp;action=like&amp;colorscheme=light&amp;height=80" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:320px; height:80px;" allowTransparency="true"></iframe>
+</div>
+
+<div class="GASzone BigAds Left" style="width:322px;height:250px;">
+<br/>  <%= render :partial => "layouts/sponsors" -%>
+</div>
+
+<div class="GASzone BigAds Left" style="width:322px;height:250px;">
+  <%= render :partial => "layouts/facebook_300" -%>
+</div>
+
+<div class="GetWidgets Left">
+  <h1 class="SectionTitle">Get Widget</h1>
+  <div>Get the MovieAB Widget on your blog posts or web pages. Just copy the widget HTML code and paste it on your posts or pages:
+    <input type="text" value="<%= h_escape(render :partial => "titles/widget_code") -%>" readonly="" onclick="this.select()"  style="width:20em;"/>
+  </div>
+</div>
+
+<%= javascript_include_tag "watchlist" %>
+<%end%>

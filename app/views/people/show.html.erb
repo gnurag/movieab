@@ -1,0 +1,26 @@
+<%content_for(:left) do -%>
+<h1 class="SectionTitle"><%=link_to "#{@person.name}", :action => "show", :id => @person.name_for_url-%> (<%=@person.role.titlecase-%>)</h1>
+<div class="PeopleBio">
+  <span class="cover Left"><%=image_tag(@person.profile_image_url, :size => "86x109", :alt => "photo", :class => "image")-%></span>
+  <strong>Bio: </strong> <%=@person.bio.nil? ? "Not available" : @person.bio-%>
+</div>
+
+<%if not @person.google_images.nil? and @person.google_images.length > 0-%>
+<h1 class="SectionTitle">Posters and pictures</h1>
+  <div>
+    <%@person.google_images[0..3].each{|img| -%>
+<%if img.tb_url -%>
+    <span class="cover Left"><%=image_tag(img.tb_url.gsub("\\u003d", "="), :size => "#{img.tb_width}x#{img.tb_height}", :alt => @person.name + " picture")-%></span>
+<%end -%>
+    <%}-%>
+  </div>
+<%end-%>
+<h1 class="SectionTitle">Some movies <%=@person.name-%> <%= "acted in" if @person.role == "actor"-%><%= "directed" if @person.role == "director"-%></h1>
+  <div class="MovieRoll Left" id="Movie_Roll"><div class="Container">
+    <%=render :partial => "titles/title_listing", :locals => {:titles => @person.titles} -%>
+  </div></div>
+<%end%>
+<%content_for(:right) do -%>
+<iframe src="http://www.facebook.com/plugins/like.php?href=<%= CGI.escape person_url-%>&amp;layout=standard&amp;show_faces=true&amp;width=320&amp;action=like&amp;colorscheme=light&amp;height=80" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:320px; height:80px;" allowTransparency="true"></iframe>
+<%= render :partial => "layouts/sponsors" -%>
+<%end%>

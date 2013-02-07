@@ -1,0 +1,5 @@
+require "#{File.dirname(__FILE__)}/netflix/netflix.rb"
+require "#{File.dirname(__FILE__)}/nytimes/nytimes.rb"
+#require "#{File.dirname(__FILE__)}/wikipedia/wikipedia.rb"
+#require "#{File.dirname(__FILE__)}/freebase/freebase.rb"
+require "#{File.dirname(__FILE__)}/amazon-paa/amazon-paa.rb"

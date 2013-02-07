@@ -1,0 +1,19 @@
+<%content_for(:left) do -%>
+<div class="StandardForm">
+<h2><span class="orange">Write a review for <%= link_to @title.title, title_path(@title.title_for_url)-%></span></h2>
+
+<%= form_for(@review, :url => title_reviews_path(@title.id)) do |f| %>
+  <p><%= f.label :subject-%><br/>
+  <%= f.text_field :subject %></p>
+
+  <p><%= f.label :review -%><br/>
+  <%= f.text_area :review, :size => "50x10" %></p>
+
+  <p><%= f.submit "Submit review"-%></p>
+<% end -%>
+<%= link_to "Back", :back %>
+</div>
+<%end%>
+<%content_for(:right) do -%>
+<%= render :partial => "layouts/sponsors" -%>
+<%end%>

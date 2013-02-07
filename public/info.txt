@@ -1,0 +1,6 @@
+# Contact info submission for Alexa crawler.
+url: movieab.com
+site_owner: Movie Media, Inc
+display_email: feedback@movieab.com
+site_name: MovieAB
+site_description: MovieAB is a mashup of various Movie data APIs available on the internet for free.

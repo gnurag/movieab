@@ -1,0 +1,27 @@
+<div class='head' id="A_Tiny_Movie_Mashup">
+  <div class='logo'>
+    <a class="Blox" style="border:0;" href="/"><%=image_tag("logos/movieab_logo.gif", :alt => "MovieAB logo", :style => "border:0;") -%></a>A tiny movie mashup!
+  </div>
+<%if user_signed_in? -%>
+  <div class='signin'>
+	<span>Signed in as <%= current_user.email -%></span>
+    	<span> | </span>
+	<span><%=link_to "My Home", root_path-%></span>
+   	<span> | </span>
+	<span><%=link_to "Profile", user_path(current_user.urlid)-%></span>
+	<span> | </span>
+	<span><%=link_to "Settings", edit_user_registration_path-%></span>
+	<span> | </span>
+	<span><%=link_to("Sign out", "/users/signout") -%></span>
+<%else-%>
+  <div class='signin'>
+    <span>Hello Guest!</span>
+    <span>| </span>
+    <%=link_to("Register", new_user_registration_path, {:id => 'signup', :title => "Signup with us."}) -%>
+    <span>| </span>
+    <%=link_to("Sign In", new_user_session_path, {:id => 'signin', :title => "Click to go to the login page."}) -%>
+<%end-%>
+  </div>
+</div>
+
+

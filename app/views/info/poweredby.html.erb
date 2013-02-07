@@ -1,0 +1,12 @@
+<%content_for(:left) do -%>
+<h1 class="SectionTitle">MovieAB.com is powered by</h1>
+    <p><strong><a href="http://www.netflix.com" rel="nofollow" target="_blank">Netflix</a></strong></p>
+    <p>Many thanks to Netflix for opening up their massive catalog of movie titles to the independent developer community. This project wouldnt have been possible without support from Netflix, their feature rich API and excellent API hosting provided by them.</p>
+    <p><strong><a href="http://developer.nytimes.com" rel="nofollow" target="_blank">New York Times</a></strong></p>
+    <p>The movie review snippets at MovieAB are powered by NYTimes Movie Reviews APIs. New York Times has a large archive of movie reviews dating from today back to 1924.</p>
+    <p><strong><a href="http://www.eficacy.com/" rel="nofollow" target="_blank">Eficacy Designs</a></strong></p>
+    <p>Design and logos are done by Eficacy designs. Simple and minimalist page layout &mdash; made to order!</p>
+<%end%>
+<%content_for(:right) do -%>
+<%= render :partial => "layouts/sponsors" -%>
+<%end%>

@@ -1,0 +1,21 @@
+<%content_for(:left) do -%>
+<h2><span class="orange"><%=link_to @title.title, title_path(@title.title_for_url) -%> <%="(#{@title.release_year})" if @title.release_year and @title.release_year != ""-%></span> reviews (<%= link_to "Write a review", new_title_review_path(@title.title_for_url)-%>)</h2> 
+  <div class="left_box">
+    <%#=render :partial => "layouts/banner_ad" -%>
+    <%if @title.reviews.length > 0 -%>
+    <%@title.reviews.each{|review| -%>
+      <div class="review">
+	<h3><%=h review.subject.eql?('') ? 'Review' : review.subject -%> &mdash; by <%= link_to review.user.name, user_path(review.user.urlid) -%></h3>
+	<%=simple_format(h review.review)-%>
+      </div>
+    <% } -%>
+    <%else -%>
+      <div class="review">
+        <h3><span><%= link_to "Be the first one to review!", new_title_review_path(@title.title_for_url)-%></span></h3>        
+      </div>
+    <%end -%>
+  </div>
+<%end%>
+<%content_for(:right) do -%>
+<%= render :partial => "layouts/sponsors" -%>
+<%end%>

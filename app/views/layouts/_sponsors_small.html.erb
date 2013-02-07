@@ -1,0 +1,15 @@
+<div class="ADspace" align="center">
+<%if Rails.env == "development" -%>
+<%=image_tag "/ad_s_200.jpg" %>
+<%else-%>
+  <script type="text/javascript"><!--
+  google_ad_client = "pub-0312552296653019";
+  /* MovieAB 200x200, created 11/12/09 */
+  google_ad_slot = "7611715926";
+  google_ad_width = 200;
+  google_ad_height = 200;
+  //-->
+  </script>
+  <script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>
+  <%end-%>
+</div>

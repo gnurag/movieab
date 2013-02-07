@@ -1,0 +1,80 @@
+<%content_for(:left) do -%>
+<h1 class="MovieTitle"><%=link_to @user.name, user_path(@user.urlid)-%></h1>
+<span class="cover Left"><%=image_tag(@user.avatar.url :medium, :class => "image Left")-%>
+</span>
+
+<ul class="MovieData">
+  <li><%= render :partial => "follow_form" if user_signed_in? -%></li>
+  <li id='ShortTitle'> <strong>Name:</strong> <%=@user.name-%></li>
+  <li id='NFRating'> <strong>Location:</strong> <%=@user.location-%></li>
+  <li id='Runtime'> <strong>Website:</strong> <%= @user.website -%></li>
+  <li id='MPAARating'> <strong>Joined:</strong> <%= @user.created_at.strftime("%d %b, %Y") -%></li>
+</ul>
+
+<!-- Following -->
+<div class="StarCast">
+  <h3><span>Following <%= pluralize( @user.following.count, 'user') -%></span></h3>
+<%if @user.following.count >= 1 -%>
+    <ul class="StarList">
+<%@user.following.each{|u| -%>
+      <li class='actor'><%= link_to(u.name, :controller => "users", :action => "show", :id => u.urlid)-%></li>
+<% } -%>
+    </ul>
+<% end -%>
+</div>
+
+<!-- Followers -->
+<div class="StarCast">
+  <h3><span>Has <%= pluralize(@user.followers.count, 'follower') -%></span></h3>
+<%if @user.followers.count >= 1 -%>
+    <ul class="StarList">
+<%@user.followers.each{|u| -%>
+      <li class='actor'><%= link_to(u.name, :controller => "users", :action => "show", :id => u.urlid)-%></li>
+<% } -%>
+    </ul>
+<% end -%>
+</div>
+
+<h1 class="SectionTitle">Stash</h1>
+<%if @user.watched and @user.watched.length >= 1 -%>
+<!-- Watched stash -->
+<div class="StarCast">
+  <h3><span>Watched</span></h3>
+    <ul class="StarList">
+<%@user.watched.each{|title| -%>
+      <li class='actor'><%= link_to(title.title, :controller => "titles", :action => "show", :id => title.title_for_url)-%></li>
+<% } -%>
+    </ul>
+</div>
+<%end-%>
+
+<!-- Watching stash -->
+<%if @user.watching and @user.watching.length >= 1 -%>
+<div class="StarCast">
+  <h3><span>Watching</span></h3>
+    <ul class="StarList">
+<%@user.watching.each{|title| -%>
+      <li class='actor'><%= link_to(title.title, :controller => "titles", :action => "show", :id => title.title_for_url)-%></li>
+<% } -%>
+    </ul>
+</div>
+<%end-%>
+
+<!-- To watch stash -->
+<%if @user.towatch and @user.towatch.length >= 1 -%>
+<div class="StarCast">
+  <h3><span>Watchlist</span></h3>
+    <ul class="StarList">
+<%@user.towatch.each{|title| -%>
+      <li class='actor'><%= link_to(title.title, :controller => "titles", :action => "show", :id => title.title_for_url)-%></li>
+<% } -%>
+    </ul>
+</div>
+<%end%>
+
+<%end%>
+<%content_for(:right) do -%>
+<div class="GASzone BigAds Left" style="width:322px;height:250px;">
+  <%= render :partial => "layouts/sponsors" -%>
+</div>
+<%end%>

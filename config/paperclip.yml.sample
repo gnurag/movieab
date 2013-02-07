@@ -1,0 +1,11 @@
+development:
+  storage_path: /path/to/media/storage/directory
+  host: media.host.example.com
+
+test:
+  storage_path: /path/to/media/storage/directory
+  host: media.host.example.com
+
+production:
+  storage_path: /path/to/media/storage/directory
+  host: media.host.example.com

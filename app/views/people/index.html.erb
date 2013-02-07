@@ -1,0 +1,14 @@
+<%content_for(:left) do -%>
+  <%=render :partial => "shared/left_links" -%>
+<%end-%>
+<%content_for(:center) do -%>
+<% clist = ('A'..'Z').to_a
+clist.each_with_index{|x,i|-%>
+<b><%=link_to(x, :controller => 'people', :action => 'browse', :id => x.downcase)-%><%if not (i+1 == clist.length)-%>&nbsp;|&nbsp;<%end-%></b>
+<%}-%>
+<%=render :partial => "page_group", :locals => {:people => @people} -%>
+<%= will_paginate @posts %>
+<%end-%>
+<%content_for(:right) do -%>
+<%= render :partial => "layouts/sponsors" -%>
+<%end-%>

@@ -1,0 +1,18 @@
+<%content_for(:left) do -%>
+  <%=render :partial => "shared/left_links" -%>
+<%end-%>
+
+<%content_for(:center) do -%>
+<h3 class="MovieTitle">Recent updates</h3>
+
+<!-- User's timeline -->
+<% @updates.each{|update|-%>
+  <%= render :partial => "users/update", :locals => {:update => update} -%>
+<% } -%>
+
+<%= will_paginate @updates-%>
+<%end%>
+
+<%content_for(:right) do -%>
+<%= render "shared/user_update_form"-%>
+<%end%>

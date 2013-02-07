@@ -1,0 +1,22 @@
+<%= render :partial => "layouts/header" -%>
+<body>
+<div class="main">
+  <div class="page">
+    <%= render :partial => "layouts/top_nav" -%>
+    <%= render :partial => "layouts/search" -%>
+    <div class="underFold">
+      <div class="MovieList Left">
+        <%= content_for :left -%>
+      </div>
+      <div class="MovieRoll Left" id="Movie_Roll">
+        <div class="Container">
+	  <%= content_for :center -%>
+	</div>
+      </div>
+      <div class="GASzone Left">
+        <%= content_for :right -%>
+      </div>
+    </div>
+  </div>
+</div>
+<%= render :partial => "layouts/footer" -%>

@@ -1,0 +1,9 @@
+<%if people and people.length >= 1 -%>
+<% for person in people %>
+<div class="right_articles">
+  <p>
+    <%= link_to person.name, :controller => "people", :action => "show", :id => person.name_for_url %><br/>
+  </p>
+</div>
+<%end-%>
+<%end%>

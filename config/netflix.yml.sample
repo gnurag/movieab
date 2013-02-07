@@ -1,0 +1,14 @@
+development:
+  api_key: <API-KEY>
+  api_secret: <API-SECRET>
+  api_root: http://api.netflix.com
+
+test:
+  api_key: <API-KEY>
+  api_secret: <API-SECRET>
+  api_root: http://netflix.api.mashery.com
+
+production:
+  api_key: <API-KEY>
+  api_secret: <API-SECRET>
+  api_root: http://netflix.api.mashery.com

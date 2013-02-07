@@ -1,0 +1,11 @@
+<div class="cbw snap_nopreview">
+  <div class="cbw_header">
+    <script src="<%=request.protocol + request.host_with_port-%>/javascripts/widget.js" type="text/javascript"></script>
+    <div class="cbw_header_text"><a href="http://www.movieab.com/" rel="nofollow">MovieAB movie summary</a></div>
+  </div>
+  <div class="cbw_content">
+    <div class="cbw_subheader"><%= link_to(h(@title.title), :controller => "titles", :action => "show", :id => @title.title_for_url, :only_path => false) -%></div>
+    <div class="cbw_subcontent"><script src="<%=request.protocol + request.host_with_port-%>/titles/<%=@title.title_for_url-%>.js" type="text/javascript"></script></div>
+    <div class="cbw_footer">Movie info by <a href="http://www.movieab.com/" rel="nofollow">MovieAB</a></div>
+  </div>
+</div>

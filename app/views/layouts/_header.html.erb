@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <!-- Begin Errorception tracker -->
+    <script>
+    var _errs=["4e6794dc49c9816a0c007602"];(function(a,b){a.onerror=function(){_errs.push(arguments)};
+    var d=function(){var a=b.createElement("script"),c=b.getElementsByTagName("script")[0];
+    a.src=b.location.protocol+"//errorception.com/projects/"+_errs[0]+"/beacon.js";c.parentNode.insertBefore(a,c)};
+    a.addEventListener?a.addEventListener("load",d,!1):a.attachEvent("onload",d)})(window,document);
+    </script>
+    <!-- End Errorception tracker -->
+    <title><%if @page_title %><%=@page_title%> | MovieAB<%else%>MovieAB | Movies, Actors, Directors and Clips Database<%end%></title>
+    <link rel="Shortcut Icon" href="<%=ActionController::Base.asset_host-%>/favicon.ico" type="image/x-icon" />
+    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+    <meta property="fb:page_id" content="176926515681747" />
+    <%= stylesheet_link_tag "style"%>
+    <%= stylesheet_link_tag "thickbox"%>
+    <!--[if lte ie 6]>
+      <%= stylesheet_link_tag "fix-for-crappy-browsers" %>
+    <![endif]-->
+    <meta http-equiv="X-XRDS-Location" content="http://<%=request.host_with_port-%>/info/xrds" />
+    <%= csrf_meta_tag %>
+    <%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js" %>
+    <%= javascript_include_tag "jquery.autocomplete" %>
+    <%= javascript_include_tag "autocomplete" %>
+    <%= javascript_include_tag "thickbox.min" %>
+</head>

@@ -1,0 +1,659 @@
+body
+    { margin:0; padding:0; font-size:0.9em; }
+
+body img {border:0 none;}
+
+body,
+.helveticans
+    { font-family:Helvetica,'Arial Narrow',Arial,sans-serif; }
+
+.garamondians, em
+    { font-family:Garamond,Georgia,'Times New Roman', serif; }
+
+.movieab
+    {color:#E06A20;}
+
+
+.PosRel
+    { position:relative; }
+
+.PosAbs
+
+    { position:absolute; }
+
+.Left
+    { float:left; }
+
+.Right
+    { float:right; }
+
+.NoFloat
+    { float:none; }
+
+.CLeft
+    { clear:left; }
+
+.CRight
+    { clear:right; }
+
+.CAll
+    { clear:both; }
+
+.CNone
+    { clear:none; }
+
+.Blox
+    { display:block; }
+
+
+.NoListStyles,
+ul.Credits,
+ul.Credits li
+    { list-style-type:none; }
+
+.NoPadding
+    { padding:0; }
+
+.NoMargin
+    { margin:0; }
+
+.TextOut
+    { text-indent:-6000pt; }
+
+.alert, .error
+    { width:90%; font-weight:bold; text-align:center; }
+
+.info { width:90%; padding: 0 1em 0; }
+
+.info 
+{ background-color:#FFFBD9; border-radius:4px; color:#000; border:2px solid #F8E395;}
+
+.alert 
+    { background-color:#FFE; border-radius:4px; color:#F60; border:2px solid #FDA;  }
+
+.error
+    {  background-color:#F88; border-radius:4px; color:#800;  border:2px solid #800; }
+
+h4,h5,h6
+    {position:relative;overflow:hidden; margin:4px auto;}
+
+/* ------------------  LINKS ---------------------  */
+/* the most generic defs */
+a, a:link, a:visited { color:#00f; text-decoration:none; border-bottom:0 none; }
+
+a:hover, a:visited:hover
+    { color:#e06a20; background-color:#f0f0f0; border-bottom:1px solid #e06a20; }
+
+/* ---  O --- */
+
+div.main {
+    margin:0; padding:0; width:100%; overflow:hidden;
+}
+
+div.page
+    { position:relative; width:940px; margin:0 auto; padding:0;}
+
+
+/* ------------- HEAD ---------------- */
+div.head
+    { position:relative; float:left; clear:both; width:940px; padding:0; margin:0; height:60px; }
+
+div.logo
+    { position:relative; float:left; margin:10px;
+    width:200px; height:50px; overflow:hidden;
+ }
+
+div.logo a { width:100%; margin:0; padding:0; background:transparent none !important;}
+
+/* ------------- NECK ---------------- */
+div.neck
+    { position:relative; float:left; clear:both; width:940px; padding:0; margin:0; }
+
+div.neck h1
+    { text-align:center; width:100%; height:80px; padding:20px 0; font-size:2.5em; color:#666; font-family: serif; }
+
+div.neck h1 span
+    { display:block; font-size:60%; font-family: 'Gill Sans', Sans-serif; font-weight:normal; margin-top: 1.3em; }
+
+/* ------------- HEADER ---------------- */
+div.tbar {
+    float:left; clear:both; width:100%;
+    position:relative; left:0; top:0;
+    margin:0;
+}
+
+/* ------------- SEARCH BAR ---------------- */
+div.searchBar
+    { float:left; clear:both; margin:5px auto 0; padding:5px 0 2px; width:100%;
+    border-top:3px solid #F0F0F0; border-bottom:3px solid #F0F0F0;
+    background-color:#FAFAFA;
+    }
+
+div.searchBar form p
+    { height:48px; padding-left:5%; margin:0 0 0 9%; overflow:hidden;
+    background:transparent url("/images/objects/sprite-widgets.png") no-repeat scroll 0 5px;
+    color:#888;
+    }
+
+
+div.searchBar p span
+    { margin:0 10px; }
+
+div.searchBar p span.providers
+    { float:right; clear:none; }
+
+div.searchBar p span img
+    { border:0;}
+
+
+div.searchBar form p input
+    { background: transparent none no-repeat scroll 0 0; border:0 none; height:30px;
+    font-size:1.1em; font-weight:bold; font-family: Helvetica, Sans-serif;
+    color:#888;
+    }
+
+
+div.searchBar form p input.search
+    { float:left; padding-top:10px; padding-left:9px; border:1px solid #ccc;
+    background-color:#F0F0F0; cursor:pointer;
+    }
+
+
+div.searchBar form p input.search:hover,
+div.searchBar form p input.search:focus
+    {
+    background-color:#F5F5D0;
+    }
+
+
+div.searchBar form p input.search:focus
+    { color:#E06D20; }
+
+
+div.searchBar form p input.submit
+    { text-indent:-6000pt;
+    background:transparent url("/images/objects/sprite-widgets.png") no-repeat scroll 0 -105px;
+    display:inline-block; width:90px; height:42px; overflow:hidden;
+    float:left; margin-left:10px; cursor:pointer;
+    }
+
+
+div.searchBar form p input.submit:hover
+    { background:transparent url("/images/objects/sprite-widgets.png") no-repeat scroll 0 -155px; }
+
+/* ------------- MOVIE LIST ---------------- */
+div.MovieList
+    {
+    position:relative;
+    width:226px; margin-left:0; margin-right:0;
+    border-top:1px solid #CCC;
+    background:#FAFAFA url(/images/objects/separator.png) no-repeat scroll right top;
+    overflow:hidden;
+    }
+
+
+    div.MovieList .MovieListItem
+        {
+        position:relative;
+        height:24px; overflow:hidden;
+        padding:9px 15px;
+        border-bottom:1px solid #CCC;
+        text-align:left;
+        font-weight:bold;
+        color:#444;
+        }
+
+
+    div.MovieList .MovieListItem:hover
+        {
+        background-color:#FFF;
+        }
+
+
+    div.MovieList .MovieListItem span,
+    div.MovieList .MovieListItem span a
+        { border:0 none; background:none;  }
+
+
+
+/* ------------- GoogAdSzone :D ---------------- */
+div.GASzone
+    {
+    position:relative;
+    width:226px;
+    margin-left:0; margin-right:0;
+    background:transparent url(/images/objects/separator.png) no-repeat scroll left top;
+    overflow:hidden;
+    }
+
+div.BigAds
+    {
+    background:transparent none;
+    }
+
+    div.GASzone div.ADspace,
+    div.GASzone div.ADspace300
+        {
+        position:relative; width:200px; height:200px;
+        float:left; clear:both;
+        background-color:#F0F0F0;
+        border:1px solid #D0D0D0;
+        margin:0 0 0 16px;
+        }
+
+    div.GASzone div.ADspace300
+        { 
+        width:300px; height:250px;
+        }
+
+/* ------------- MOVIE ROLL ---------------- */
+div.MovieRoll
+    {
+    /* this is for the roll that shows the list of latest movies */
+    position:relative;
+    width:468px;
+    overflow:hidden;
+    margin-left:10px; margin-right:10px;
+    padding-bottom: 1em;
+    }
+
+
+div.MovieRoll div.Container
+    { overflow:hidden; }
+
+
+div.MovieRoll div.Container div.Movie,
+div.MovieDetails div.Container div.FullSynopsis
+    {
+    border-bottom:1px dashed #CCC; width:464px; float:left; clear:both;
+    background-color:#FFF;
+    }
+
+
+div.MovieRoll div.Container div.Movie:hover
+    { background-color:#F0F0F0; }
+
+   div.Movie span.cover
+        { display:block; width:38px; height:50px; overflow:hidden; border:1px solid #CCC; margin:2px; }
+
+    div.Movie span.cover img
+        { background-image:transparent url(/images/objects/no-img.png) no-repeat scroll center center; }
+
+    div.Movie span.movieData
+        { padding:3px 9px; width:80%; }
+
+    div.Movie span.movieData span.movieName
+        { font-weight:bold; font-size:0.9em; color:#888; }
+
+    div.Movie:hover span.movieData span.movieName
+        {color:#666;}
+
+        span.movieName a:visited
+            {color:#00F;text-decoration:none;}
+        span.movieName a:hover
+            {color:#E06A20;text-decoration:none;}
+
+
+        div.Movie span.movieData span.movieRating,
+    div.Movie span.movieMore
+        { font-weight:normal; font-size:0.9em; color:#888;  }
+
+    div.Movie span.movieData span.movieRating
+        { padding:0 6px; float:right; }
+
+    div.Movie span.movieMore
+        {display:block; margin:3px; font-weight:normal; font-size:12px; }
+    /*
+     div.Movie:hover span.movieMore
+        {display:block;} *ignore hover effects, display block always*/
+
+    div.Movie span.movieMore a.buy:link,
+    div.Movie span.movieMore a.buy:visited
+        { color:#E06A20; }
+    div.Movie span.movieMore a.buy:hover,
+    div.Movie span.movieMore a.buy:visited:hover
+        { background-color:#FFEAEF; }
+
+    div.Movie span.movieMore a.viewmore:link,
+    div.Movie span.movieMore a.veiwmore:visited
+        { color:#206AE0; }
+    div.Movie span.movieMore a.viewmore:hover,
+    div.Movie span.movieMore a.viewmore:visited:hover
+        { border-bottom:1px solid #206AE0; background-color:#EAEFFF; }
+
+
+    div.Movie span.movieMore a.similar:link,
+    div.Movie span.movieMore a.similar:visited
+        { color:#108020; }
+    div.Movie span.movieMore a.similar:hover,
+    div.Movie span.movieMore a.similar:visited:hover
+        { border-bottom:1px solid #20A04A; background-color:#EAFFEF; }
+
+    div.Movie span.synopsis
+        { margin:0.3em; font-weight: normal;}
+
+/* ------------- MOVIE DETAILS AND OTHER PAGE-SECTIONS ---------------- */
+div.MovieDetails,
+div.MabInfo,
+div.People
+    {
+    position:relative;
+    width:63%;
+    overflow:hidden;
+    margin-left:10px; margin-right:10px;
+    border-right:1px solid #F0F0F0;
+    }
+
+div.PeopleBio
+    { position:relative; text-align:justify; overflow:hidden; float:left; }
+
+div.MabInfo,
+div.LogInBlock,
+div.People {
+    margin-bottom:1em;
+}
+
+    div.MovieDetails div.Container div.FullSynopsis
+        {width:100%; padding:0 0 1em 0; line-height:1.8em; }
+
+    div.MovieDetails span.MovieTitle,
+    div.MovieDetails h1.MovieTitle,
+    div.MovieDetails h1.SectionTitle,
+    div.People h1.SectionTitle,
+    h3
+        {
+        display:block; background-color:#FAFAFA; color:#666;
+        border-bottom:3px solid #F0F0F0; width:100%;
+        position:relative; float:left; clear:both;
+        }
+
+    div.GetWidgets
+        { margin-top:1.2em; width:300px; margin-left:20px; }
+
+    div.GetWidgets h1.SectionTitle,
+    div.MabInfo h1.SectionTitle
+        { border-bottom:1px solid #D0D0D0; }
+
+    div.MovieDetails h1.MovieTitle,
+    div.MovieDetails h1.SectionTitle,
+    div.GetWidgets h1.SectionTitle,
+    h1.SectionTitle
+        {
+        font-size:1.5em; margin-top:0; padding:0.7em 0 0 0.3em;
+        }
+
+        div.FullSynopsis span.cover
+            { margin-right:10px; }
+
+        div.FullSynopsis ul.MovieData
+            {
+            list-style-type:none;
+            position:relative; float:left;
+            padding:0 0 0 20px; margin:0; width: 67%;
+            }
+
+        div.FullSynopsis ul.MovieData li { line-height:180%; }
+
+        div.FullSynopsis span.ThirdPartyRetail
+            {
+            position:absolute;            
+            /* background:transparent url("../images/objects/buy-button-sprite.png") no-repeat scroll 0 0; */
+            overflow:hidden;
+            width:164px; height:25px;
+            display:block;            
+            /* margin: 6px 0; */
+						top:54px; right:9px;
+            }
+
+        div.FullSynopsis span#AmazonBuyLink,
+        div.FullSynopsis span#AmazonBuyLink a { 
+						display:block; position:relative; margin:0 auto;  font-weight:bold; color:#fff;
+						border:0 none; text-align:center;
+						background:transparent url("../images/objects/buy-button-sprite.png") no-repeat scroll 0 0;
+						width:164px; height:25px;
+						text-shadow:1px 1px 2px rgba(255,255,255,0.35);						
+						}
+
+        div.FullSynopsis span#AmazonBuyLink a:hover {
+						color:#FA6;
+						text-shadow:1px 1px 2px rgba(0,0,0,0.35);
+						background:transparent url("../images/objects/buy-button-sprite.png") no-repeat scroll 0 -30px;
+						}
+ 
+        div.FullSynopsis span.ThirdPartyRetail:hover { border-color:#DDD;} 
+
+            div.StarCast
+                {
+                position:relative; float:left; clear:both;
+                border:1px solid #E0E0E0;
+                width:99.6%; padding:0; margin:1em 0;
+                }
+
+            div.StarCast h3
+                { margin:0; padding:6px 0; color:#0F0F0F;}
+
+            div.StarCast h3 span
+                { margin:0 1em; }
+
+            div.StarCast ul.StarList
+                {
+                position:relative; float:left; overflow:hidden;
+                list-style-type:none;
+                width:99%;
+                margin:3px; padding:3px;
+                line-height:180%;
+                }
+
+            div.StarCast ul.centerCol
+                { border-width:1px;
+                border-style:none dashed;
+                border-color:#CCC; }
+
+                ul.StarList li
+                    { display:block; padding:0 0 0 6px; width: 31%; float: left; clear: none;}
+
+                ul.StarList li:hover
+                    { background-color:#F0F0F0; }
+
+/* Styles for an individual user update box */
+            div.user_update_box textarea
+            { width: 82%; height: 5em; overflow: visible; }
+
+            div.UserUpdate
+                {
+                position:relative; float:left; clear:both;
+                border:1px solid #E0E0E0;
+                width:99.6%; padding:0px; margin:0px 0;
+                }
+
+            div.UserUpdate h4
+                { margin:4px; padding:0px 0; color:#0F0F0F; background-color: #FAFAFA;}
+
+            div.UserUpdate h4 span
+                { margin:0px; }
+            div.UserUpdate p
+                { margin:4px; }
+            div.UserUpdate p.timestamp
+                { margin:4px; font-size: 80%; color:#888; padding: 0px 0;}
+
+/* end user update styles */
+
+        div.FullSynopsis div.Accolades,
+        div.FullSynopsis div.Reviews,
+        div.FullSynopsis div.ThirdPartyProductInfo
+            {
+            position:relative; float:left; clear:both;
+            }
+
+        div.FullSynopsis div.Accolades ul.Accolades,
+        div.FullSynopsis div.ThirdPartyProductInfo ul.ThirdPartyProductInfo
+            {margin-top:0;}
+
+        div.FullSynopsis div.ThirdPartyProductInfo
+            {width: 85%;}
+
+        div.FullSynopsis div.ThirdPartyProductInfo img.AmazonCover
+            {margin-top:0; display:block; float:right; padding: 1em; background-color: #F0F0F0;}
+
+        div.Reviews
+            {text-align:justify; padding:0 6px;}
+
+
+div.MovieList2
+    { position:relative; width:95%; float:left; clear:both; margin:1em; overflow:hidden; }
+
+div.MovieList2 ul
+    { position:relative; display:block; width:99%;float:left; clear:none;
+    list-style-type:none; padding:0.2em; margin:0; }
+
+div.MovieList2 ul li
+    {
+    position:relative; display:block; width:43%; float:left; clear:none;
+    border:1px solid #E0E0E0; margin:0.6em; padding:0 0.3em;
+    }
+
+div.MovieList2 ul li p
+    {margin:1px 0;}
+
+div.MovieList2 ul li p,
+div.MovieList2 ul li img,
+div.MovieList2 ul li p span
+    {position:relative; float:left; }
+
+div.MovieList2 ul li p span,
+div.MovieList2 ul li p span.MovTitle
+    {margin:0.3em;}
+
+div.MovieList2 ul li p span.MovTitle
+    {width:60%;}
+
+div.MovieList2 ul li img
+    {vertical-align:middle; margin-right:15px;}
+
+div.MovieList2 ul li a
+    {border:0 none; text-decoration:none; font-weight:bold; }
+
+div.MovieList2 ul li:hover
+    {background-color:#f0f0f0; }
+
+div.LogInBlock,
+div.OpenIDLogin,
+div.MovieABLogin
+    { position:relative; float:left; overflow:hidden; }
+
+div.LogInBlock
+    { width:100%; }
+
+div.OpenIDLogin,
+div.MovieABLogin
+    { float:left; clear:none; width:43%; padding:1em; }
+
+div.OpenIDLogin
+    { border-right:1px solid #CCC; text-align:left; }
+
+div.MovieABLogin
+    { text-align:right; }
+
+div.OpenIDLogin h1,
+div.MovieABLogin h1
+    { font-size:1.6em; }
+
+div.OpenIDLogin dd,
+div.MovieABLogin dd
+    {  margin:0; padding:0; }
+
+div.OpenIDLogin input,
+div.MovieABLogin input,
+div.StandardForm input, 
+div.StandardForm textarea
+    { padding:0.3em 1em; border:1px solid #CCC; font-size:1.2em; margin:0.3em 0; }
+
+input#openid_identifier
+    { background:transparent url(/images/logos/openid-login-bg.gif) no-repeat scroll 6px 6px; padding-left:27px; }
+
+
+/* ------------- COMMON TO ABOVE SECTIONS ---------------- */
+.MarginT50,
+div.MovieList,
+div.MovieRoll,
+div.MovieDetails,
+div.MabInfo,
+div.LogInBlock,
+div.GASzone
+    { margin-top:10px; min-height:260px; }
+/* ------------ OTHER PAGES -------- */
+h2.ClauseTitle {
+    color:#222;
+    padding:0.3em 0.5em 0 0.5em;
+    margin:1em 0.2em 0.2em 0;
+}
+
+p.Clause {
+    padding:0 0.8em;
+    margin:1em 0.2em 0.2em 0;
+}
+
+div.MabInfo p,
+ul.Credits li {
+    text-align:justify;
+}
+
+ul.Credits {
+    margin:0; padding:0 0.8em;
+}
+
+div.MabInfo p {
+    padding:0 0.8em;
+}
+
+/* --- UNDERFOLD --- */
+div.underFold { position:relative; overflow:hidden; width:100%; float:left; clear:left; }
+
+/* ------------- FOOTER SECTION ---------------- */
+div.footer
+    { background:transparent url(/images/objects/footer-decor.png) no-repeat scroll center top;
+    height:80px; overflow:hidden;
+    text-align:center;
+    font-family: Helvetica, sans-serif; font-size:0.9em; color:#666; line-height:180%;
+    padding:15px;
+    }
+
+    div.footer span
+        { display:block; }
+
+
+    div.footer span a
+        {padding:0 2px;}
+
+
+/* ------------- SIGNIN BLOCK ---------------- */
+div.signin
+    { float:right; margin-top:5px; font-family: Helvetica, 'Arial Narrow', Arial, Sans-serif; font-size:1em; }
+
+div.signin a,
+div.signin span
+    { float:left; display:block; padding:2px 5px; height:24px; }
+
+div.signin a,
+div.signin a:visited
+    { display:block; font-weight:bold; text-decoration:none; border:0 none; /* text-indent:-6000pt;  width:65px;*/
+    /*background:transparent url(/images/objects/sprite-widgets.png) no-repeat scroll 10px -240px; /* x=10 for padding*/
+    }
+
+div.signin a:hover
+    { display:block; background:none;/* text-indent:-6000pt; width:65px;
+    background:transparent url(/images/objects/sprite-widgets.png) no-repeat scroll 10px -270px; */
+    color:#E06A20;
+    }
+
+
+/**
+ * Styles for autocomplete dropdown.
+ * http://www.devbridge.com/projects/autocomplete/jquery/
+ */
+
+.autocomplete-w1 { background:url(/images/shadow.png) no-repeat bottom right; position:absolute; top:0px; left:0px; margin:6px 0 0 6px; /* IE6 fix: */ _background:none; _margin:1px 0 0 0; }
+.autocomplete { border:1px solid #999; background:#FFF; cursor:default; text-align:left; max-height:350px; overflow:auto; margin:-6px 6px 6px -6px; /* IE6 specific: */ _height:350px;  _margin:0; _overflow-x:hidden; }
+.autocomplete .selected { background:#F0F0F0; }
+.autocomplete div { padding:2px 5px; white-space:nowrap; overflow:hidden; }
+.autocomplete strong { font-weight:normal; color:#E06A20; }
